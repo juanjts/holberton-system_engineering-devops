@@ -3,7 +3,7 @@ file_line { 'IdentityFile':
     ensure  => present,
     replace => true,
     path    => 'etc/ssh/ssh_config',
-    line    => 'identityFile ~/.ssh/holberton',
+    line    => 'IdentityFile ~/.ssh/holberton',
 }
 
 file_line { 'PasswordAuthentication':
