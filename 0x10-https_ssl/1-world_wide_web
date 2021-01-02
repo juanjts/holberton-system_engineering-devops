@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#Configure your domain zone
+
+declare -a subdo=("www" "lb-01" "web-01" "web-02")
+
+if [ "$#" -eq 1 ];
+then
+    for subdomain in "${subdo[@]}";do
+    	    dig "$subdomain.$1" | awk -F'[.\t ]' '/;; ANSWER SECTION/ {getline;print "The subdomain " $1 " is a " $7 " record and points to " $8"."$9"."$10"."$11;}';
+done
+elif [ "$#" -eq 2 ];
+then
+     dig "$2.$1" | awk -F'[.\t ]' '/;; ANSWER SECTION/ {getline;print "The subdomain " $1 " is a " $7 " record and points to " $8"."$9"."$10"."$11;}';
+fi
