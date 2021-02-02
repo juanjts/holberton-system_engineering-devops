@@ -21,7 +21,6 @@ if __name__ == '__main__':
         USERNAME = u_name.get('name')
         USER_ID = u_name.get('id')
 
-
     with open(str(USER_ID) + ".csv", mode='w') as f:
         csv_obj = csv.writer(f, delimiter=',', quoting=csv.QUOTE_ALL)
         for tasks in todos_jsn:
