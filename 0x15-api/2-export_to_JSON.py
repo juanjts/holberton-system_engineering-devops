@@ -21,9 +21,9 @@ if __name__ == '__main__':
         USERNAME = u_name.get('username')
         USER_ID = u_name.get('id')
     id_tasks = {USER_ID: []}
-    task_dic = {}
     with open(str(USER_ID) + ".json", mode='w') as f:
         for tasks in todos_jsn:
+            task_dic = {}
             task_dic["task"] = tasks.get('title')
             task_dic["completed"] = tasks.get('completed')
             task_dic["username"] = USERNAME
