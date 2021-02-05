@@ -13,7 +13,7 @@ def recurse(subreddit, hot_list=[], after=None):
                          params={'after': after}, allow_redirects=False).json()
     if not query:
         return (None)
-    else:
+    try:
         child_data = query.get('data').get('children')
 
         for title_data in child_data:
@@ -24,3 +24,6 @@ def recurse(subreddit, hot_list=[], after=None):
             return recurse(subreddit, hot_list, after)
         else:
             return hot_list
+    except Exception:
+        pass
+    return (None)
