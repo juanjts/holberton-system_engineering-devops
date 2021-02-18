@@ -2,5 +2,5 @@
 exec { 'best_dbugg':
 path    => ['/usr/bin', '/usr/sbin', '/usr/local/bin',
 '/usr/local/sbin'],
-command => "sed -i 's/phpp/php/' /var/www/html/wp-settings.php",
+command => "sudo sed -i 's/phpp/php/' /var/www/html/wp-settings.php",
 }
